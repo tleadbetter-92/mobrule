@@ -9,7 +9,7 @@ const uri = process.env.MONGODB_URI;
 let clientPromise: Promise<typeof mongoose>;
 
 if (process.env.NODE_ENV === 'development') {
-  let globalWithMongoose = global as typeof globalThis & {
+  const globalWithMongoose = global as typeof globalThis & {
     mongoose: Promise<typeof mongoose>;
   };
   if (!globalWithMongoose.mongoose) {
